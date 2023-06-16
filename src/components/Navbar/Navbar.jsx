@@ -1,6 +1,4 @@
 import React, {useState} from 'react';
-import { Link} from 'react-scroll'
-import {useNavigate} from "react-router-dom"
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import "./Navbar.css"
 import calmaIcon from "../../assets/calma-transparrent.png"
@@ -10,7 +8,7 @@ const Navbar = ({isLogin,isRegister}) => {
    
     const handleClick = () => setNav(!nav)
 
-    const handleClose =()=> setNav(!nav)
+
  
   return (
     <div className='w-screen h-[80px] z-10 bg-transparent fixed drop-shadow-lg'>

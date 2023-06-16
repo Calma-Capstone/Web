@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import speakIcon from "../../assets/speak.png";
 
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import calmaIcon from "../../assets/calma-transparrent.png";
 
 const Sidebar = ({ children }) => {
   const [sidebarClicked, setSidebarClicked] = useState(false);
   const [selectedItem, setSelectedItem] = useState("curhat");
-  const navigate = useNavigate();
+
   const handleSidebarClick = () => {
     setSidebarClicked(!sidebarClicked);
   };
@@ -25,7 +24,7 @@ const Sidebar = ({ children }) => {
 
   const logout = async () => {
     try {
-      const response = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_Auth_URL}/api/auth/logout/`,
         {
           headers: {

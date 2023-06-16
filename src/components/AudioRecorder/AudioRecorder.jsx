@@ -30,9 +30,6 @@ export default class AudioRecorder extends Component {
         isRecording,
         isPause,
         isStop
-      },
-      () => {
-        console.log(this.state.status);
       }
     );
   };
@@ -43,7 +40,6 @@ export default class AudioRecorder extends Component {
       recordedData,
       recordedDataURL,
     });
-    console.log("Recorded Data:", recordedData);
   };
 
   sendRecordedData = () => {
@@ -62,8 +58,7 @@ export default class AudioRecorder extends Component {
     const response =axios
       .post(`${process.env.REACT_APP_Curhat_URL}/model/detect/`, formData)
       .then((response) => {
-        // Handle the response from the server
-        console.log("Data sent successfully:", response);
+
         this.setState({
           responseData: response.data,
           sending:false
@@ -77,7 +72,6 @@ export default class AudioRecorder extends Component {
           sending:false
       })
       });
-      console.log(response)
   };
 
 
@@ -89,19 +83,7 @@ export default class AudioRecorder extends Component {
       timeslice: 1000,
       backgroundColor: "rgba(55,65,81,0.001)",
       strokeColor: "#000",
-      startCallback: (e) => {
-        console.log("succ start", e);
-      },
-      pauseCallback: (e) => {
-        console.log("succ pause", e);
-      },
       stopCallback: this.stopCallback,
-      onRecordCallback: (e) => {
-        console.log("recording", e);
-      },
-      errorCallback: (err) => {
-        console.log("error", err);
-      },
     };
 
     const hideModal = () => {
@@ -257,6 +239,7 @@ export default class AudioRecorder extends Component {
                 onClick={() => {
                   this.controlAudio("recording", true, false,false);
                 }}
+                title="Record"
               >
                 <svg
                   class="h-8 w-8 text-black"
@@ -284,6 +267,7 @@ export default class AudioRecorder extends Component {
                 className="rounded-full border w-16 h-16 outline-black bg-white shadow flex items-center justify-center  "
                 type="button"
                 onClick={this.sendRecordedData}
+                title="Analyze"
               >
                 <img src={waveIcon} alt="wave-icon" style={{ width: "65%", height: "65%" }}/>
                 <span className="sr-only">Send Data</span>
@@ -299,6 +283,7 @@ export default class AudioRecorder extends Component {
                     onClick={() => {
                       this.controlAudio("paused", true, true,false);
                     }}
+                    title="Pause"
                   >
                     <svg
                       class="h-8 w-8 text-black"
@@ -322,6 +307,7 @@ export default class AudioRecorder extends Component {
                     onClick={() => {
                       this.controlAudio("recording", true, false,false);
                     }}
+                    title="Resume"
                   >
                     <svg
                       class="h-8 w-8 text-green-500"
@@ -346,6 +332,7 @@ export default class AudioRecorder extends Component {
                   onClick={() => {
                     this.controlAudio("inactive", false, false,true);
                   }}
+                  title="Stop"
                 >
                   <svg
                     class="h-8 w-8 text-red-500"
