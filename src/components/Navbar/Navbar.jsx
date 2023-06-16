@@ -17,7 +17,7 @@ const Navbar = ({isLogin,isRegister}) => {
       <div className='px-2 flex justify-between items-center w-full h-full'>
         <div className='flex items-center'>
           <span style={{alignItems:"center"}}class="flex  p-4 self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
-          <h1 className='flex text-3xl font-bold mr-4 sm:text-4xl'style={{marginLeft:'50px'}}>Calma</h1>
+          <h1 id="calma" className='flex text-3xl font-bold mr-4 sm:text-4xl'>Calma</h1>
           <img
                 src={calmaIcon}
                 class="flex h-10 mr-3 sm:h-14"
@@ -43,7 +43,7 @@ const Navbar = ({isLogin,isRegister}) => {
       <ul className={!nav ? 'hidden' : 'absolute bg-white cursor-pointer w-full px-8'}>
 
         <div className='flex flex-col my-4'>
-            <button onClick={isLogin} id="sign-in-toggle"  className='bg-transparent text-indigo-600 px-8 py-3 mb-4' >Sign In</button>
+            <button onClick={isLogin} id="sign-in-toggle"  className='bg-transparent text-indigo-600 si px-8 py-3 mb-4' >Sign In</button>
             <button  onClick={isRegister} color='#a390f5' className='px-8 py-3 su-btn'>Sign Up</button>
         </div>
       </ul>

@@ -22,3 +22,14 @@
     color:rgba(147,54,180,0.8)
   }
 
+h1#calma {
+  margin-left: 50px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  h1#calma {
+    margin-left: 5px;
+  }
+}
