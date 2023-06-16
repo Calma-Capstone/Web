@@ -47,7 +47,7 @@ const LoginForm = ({ isRegister, isOpen, onClose }) => {
 
     try {
       // Make the HTTP POST request using Axios
-      const response = await axios.post(`${process.env.REACT_APP_Auth_URL}/dj-rest-auth/login/`, {
+      const response = await axios.post(`${process.env.REACT_APP_Auth_URL}/api/auth/login/`, {
         "username":username,
         "password":password,
       });

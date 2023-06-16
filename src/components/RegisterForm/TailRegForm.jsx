@@ -50,7 +50,7 @@ const TailRegForm = ({ isOpen, onClose, isLogin }) => {
 
     try {
       // Make the HTTP POST request using Axios
-      const response = await axios.post(`${process.env.REACT_APP_Auth_URL}/dj-rest-auth/registration/`, {
+      const response = await axios.post(`${process.env.REACT_APP_Auth_URL}/api/auth/registration/`, {
         "email":email,
         "username":username,
         "password1":password,

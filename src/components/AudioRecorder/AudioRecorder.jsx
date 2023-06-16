@@ -112,7 +112,7 @@ export default class AudioRecorder extends Component {
     };
 
     return (
-      <div className="flex flex-col items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800 overflow-hidden">
+      <div className="flex flex-col items-center  justify-around h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800 overflow-hidden">
         
           <div className={` ${
             isStop ? "" : "hidden"
@@ -242,10 +242,10 @@ export default class AudioRecorder extends Component {
         </div>
         
         
-        <AudioAnalyser {...audioProps} className={` ${
+        <AudioAnalyser {...audioProps} className={`flex ${
             isStop ? "hidden" : ""
           } `}/>
-          <div className="flex justify-center">
+          <div className="flex  justify-center">
             {!isRecording ? (
               <>
               <button

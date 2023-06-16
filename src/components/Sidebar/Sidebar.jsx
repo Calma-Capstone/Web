@@ -3,7 +3,7 @@ import speakIcon from "../../assets/speak.png";
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import calmaIcon from "../../assets/calma_icon.png";
+import calmaIcon from "../../assets/calma-transparrent.png";
 
 const Sidebar = ({ children }) => {
   const [sidebarClicked, setSidebarClicked] = useState(false);
@@ -26,7 +26,7 @@ const Sidebar = ({ children }) => {
   const logout = async () => {
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_Auth_URL}/dj-rest-auth/logout/`,
+        `${process.env.REACT_APP_Auth_URL}/api/auth/logout/`,
         {
           headers: {
             authorization: `Bearer ${JSON.parse(
@@ -78,15 +78,17 @@ const Sidebar = ({ children }) => {
       >
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <div className="flex">
-            <a href="/" class="flex items-center pl-2.5 mb-5">
-              <img
-                src={calmaIcon}
-                class="h-6 mr-3 sm:h-7"
-                alt="Flowbite Logo"
-              />
-              <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            
+            <a href="/" style={{width:"100%"}} class="flex items-center  justify-center pl-2.5 mb-5">
+            <span class="p-4 self-center text-3xl font-semibold whitespace-nowrap dark:text-white">
                 Calma
               </span>
+              <img
+                src={calmaIcon}
+                class="h-10 mr-3 sm:h-14"
+                alt="Calma Logo"
+              />
+              
             </a>
             <button
               onClick={handleSidebarClick}
@@ -116,8 +118,8 @@ const Sidebar = ({ children }) => {
             <li >
               <a
                 
-                class={`flex items-center p-2 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 ${
-                  selectedItem === "curhat" ? "bg-gray-dark" : ""
+                className={`flex items-center p-2 rounded-lg dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 ${
+                  selectedItem === "curhat" ? "bg-gray-200" : ""
                 }`}
                 onClick={() => handleItemClick("curhat")}
               >
@@ -126,7 +128,7 @@ const Sidebar = ({ children }) => {
               </a>
             </li>
             <li onClick={logout}>
-              <a class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              <a class="flex items-center p-2 cursor-pointer text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
                 <svg
                   class="h-8 w-8 text-black"
                   width="24"
@@ -151,7 +153,7 @@ const Sidebar = ({ children }) => {
       </aside>
 
       <div class="p-4 sm:ml-64">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+        <div class="flex flex-col justify-around p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
           {children}
         </div>
       </div>
