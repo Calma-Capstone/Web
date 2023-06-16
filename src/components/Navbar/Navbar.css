@@ -1,0 +1,24 @@
+.su-btn {
+    
+    background-color: rgba(147,54,180,0.8);
+    box-shadow: 5px 10px 30px rgba(152, 105, 233, 0.336);
+    border: transparent;
+    transition: background-color 0.3s ease;/* Add a transition for a smooth effect */
+   
+   
+}
+
+.su-btn:hover {
+  background-color: transparent; /* Set the background color to transparent when hovered */
+  border: 1px solid rgba(147,54,180,0.8);
+  color:rgba(147,54,180,0.8)
+}
+
+.si-btn {
+    transition: color 0.3s ease;/* Add a transition for a smooth effect */
+  }
+
+.si-btn:hover {
+    color:rgba(147,54,180,0.8)
+  }
+
